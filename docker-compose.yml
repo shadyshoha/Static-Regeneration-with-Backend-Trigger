@@ -1,0 +1,15 @@
+services:
+  api-dev:
+    build: .
+    image: dev-api
+    container_name: dev-api
+    restart: always
+    mem_limit: 600M
+    mem_reservation: 30M
+    cpus: 0.4
+    ports:
+      - 8080:8080
+    env_file: .env
+    volumes:
+      - ./src:/app/src
+    command: npm run start
